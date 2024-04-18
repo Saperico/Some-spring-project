@@ -1,6 +1,8 @@
 package com.capgemini.wsb.persistence.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -27,11 +29,14 @@ public class PatientEntity {
 
 	private String email;
 
-	@Column(nullable = false)
 	private String patientNumber;
 
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
+	private float weight;
+
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<VisitEntity> visits = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -89,4 +94,21 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public float getWeight() {
+		return weight;
+	}
+
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+	public AddressEntity getAddress() {
+		return address;
+	}
+	public void setAddress(AddressEntity addressEntity) {
+		this.address = addressEntity;
+	}
+
+	public List<VisitEntity> getVisits() {
+		return visits;
+	}
 }
