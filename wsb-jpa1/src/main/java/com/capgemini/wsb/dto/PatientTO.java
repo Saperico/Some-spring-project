@@ -2,11 +2,11 @@ package com.capgemini.wsb.dto;
 
 import com.capgemini.wsb.persistence.entity.VisitEntity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-public class PatientTO {
+public class PatientTO implements Serializable {
 
         private Long id;
         private String firstName;

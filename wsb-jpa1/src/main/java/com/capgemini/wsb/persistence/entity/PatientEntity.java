@@ -1,5 +1,8 @@
 package com.capgemini.wsb.persistence.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,7 @@ public class PatientEntity {
 	private String lastName;
 
 	@OneToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "address_id", nullable = false)
 	private AddressEntity address;
 

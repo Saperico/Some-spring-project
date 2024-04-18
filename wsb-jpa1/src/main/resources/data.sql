@@ -17,13 +17,18 @@ insert into PATIENT (first_name, last_name, address_id, date_of_birth, patient_n
 
 insert into DOCTOR (first_name, last_name, address_id, doctor_number,telephone_number,specialization)
             values
-            ('Jan', 'Kowalski', 3, '1','671983230','dentist'),
-            ('Anna', 'Nowak', 4 ,'2','12345','surgeon');
+            ('Jan', 'Kowalski', 3, '1','671983230','GP'),
+            ('Anna', 'Nowak', 4 ,'2','12345','SURGEON');
 
 
 insert into VISIT (patient_id, doctor_id, time, description)
             values
             (1, 1, '2019-01-01 12:00:00', 'bad tooth'),
             (2, 2, '2019-02-02 12:00:00', 'appendix');
+
+INSERT into MEDICAL_TREATMENT(description, type, visit_id)
+            values
+            ('tooth extraction', 'SURGERY', 1),
+            ('appendix removal', 'SURGERY', 2);
 
 

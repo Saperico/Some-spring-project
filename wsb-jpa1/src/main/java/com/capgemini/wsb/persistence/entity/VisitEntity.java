@@ -1,6 +1,8 @@
 package com.capgemini.wsb.persistence.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -18,14 +20,20 @@ public class VisitEntity {
 	private LocalDateTime time;
 
 	//doctor id
-	@ManyToOne
-	@JoinColumn(name = "doctor_id")
+	@ManyToOne(fetch = FetchType.LAZY)
 	private DoctorEntity doctor;
+
+
+	//doctor name from doctor entity
+	@Transient
+	private String doctorName;
+
 
 	//patient id
 	@ManyToOne
 	@JoinColumn(name = "patient_id")
 	private PatientEntity patient;
+
 
 	public Long getId() {
 		return id;
