@@ -2,6 +2,7 @@ package com.capgemini.wsb.dto;
 
 import java.io.Serializable;
 
+
 public class AddressTO implements Serializable
 {
     private Long id;

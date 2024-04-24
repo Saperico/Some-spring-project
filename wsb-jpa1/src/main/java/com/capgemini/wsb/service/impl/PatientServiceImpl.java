@@ -32,4 +32,9 @@ public class PatientServiceImpl implements PatientService {
     public List<VisitEntity> findVisitsByPatientId(Long id) {
         return patientDao.findVisitsByPatientId(id);
     }
+
+    @Override
+    public void deletePatient(long l) {
+        patientDao.delete(l);
+    }
 }
