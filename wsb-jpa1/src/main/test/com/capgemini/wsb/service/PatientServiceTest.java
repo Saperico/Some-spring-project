@@ -28,18 +28,29 @@ public class PatientServiceTest {
     @Transactional
     @Test
     //test for deletion of patient
-    public void testShouldDeletePatient() {
+    public void testDeletePatient() {
         // given
-        // patient with id 1 has visit 1 that is also assigned to doctor 1
+        assertThat(patientService.findById(1L)).isNotNull();
+        assertThat(visitsRepository.findOne(1L)).isNotNull();
+        assertThat(doctorRepository.findOne(1L)).isNotNull();
         // when
         patientService.deletePatient(1L);
         // then
         assertThat(patientService.findById(1L)).isNull();
-
-        //check whether visits are deleted
         assertThat(visitsRepository.findOne(1L)).isNull();
-
-        //check whether doctor was not deleted
         assertThat(doctorRepository.findOne(1L)).isNotNull();
+    }
+
+    @Transactional
+    @Test
+    //test for finding patients by last name
+    public void testFindByLastName() {
+        // given
+        assertThat(patientService.findById(1L).getLastName()).isEqualTo("Kowalski");
+        assertThat(patientService.findById(3L).getLastName()).isEqualTo("Kowalski");
+        // when
+        // then
+        assertThat(patientService.findByLastName("Kowalski")).isNotNull();
+        assertThat(patientService.findByLastName("Kowalski").size()).isEqualTo(2);
     }
 }

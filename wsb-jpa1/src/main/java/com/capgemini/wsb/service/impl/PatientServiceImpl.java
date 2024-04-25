@@ -28,9 +28,16 @@ public class PatientServiceImpl implements PatientService {
         return PatientMapper.mapToTO(entity);
     }
 
+
+
     @Override
     public List<VisitEntity> findVisitsByPatientId(Long id) {
         return patientDao.findVisitsByPatientId(id);
+    }
+
+    @Override
+    public List<PatientEntity> findByLastName(String lastName) {
+        return patientDao.findByLastName(lastName);
     }
 
     @Override

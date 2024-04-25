@@ -12,7 +12,9 @@ insert into address (address_line1, address_line2, city, postal_code)
 insert into PATIENT (first_name, last_name, address_id, date_of_birth, patient_number,telephone_number,weight)
             values
             ('Jan', 'Kowalski', 1, '1990-01-01','1','671983230',80),
-            ('Anna', 'Nowak', 2, '1991-02-02','2','12345',65);
+            ('Anna', 'Nowak', 2, '1991-02-02','2','12345',65),
+            ('Marek', 'Kowalski', 3, '1992-03-03','3','12345',70),
+            ('Kasia', 'Nowak', 4, '1993-04-04','4','12345',75);
 
 
 insert into DOCTOR (first_name, last_name, address_id, doctor_number,telephone_number,specialization)
