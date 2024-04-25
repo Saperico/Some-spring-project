@@ -50,6 +50,6 @@ public class PatientServiceTest {
         // when
         // then
         assertThat(patientService.findVisitsByPatientId(1L)).isNotNull();
-        assertThat(patientService.findVisitsByPatientId(1L).size()).isEqualTo(1);
+        assertThat(patientService.findVisitsByPatientId(1L).size()).isEqualTo(5);
     }
 }

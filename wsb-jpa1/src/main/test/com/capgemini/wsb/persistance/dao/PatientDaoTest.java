@@ -26,4 +26,22 @@ public class PatientDaoTest {
         assertThat(patientDao.findByLastName("Kowalski")).isNotNull();
         assertThat(patientDao.findByLastName("Kowalski").size()).isEqualTo(2);
     }
+
+    @Test
+    public void testFindPatientsWhichHadMoreVisitsThan() {
+        // given
+        // when
+        // then
+        assertThat(patientDao.findPatientsWhichHadMoreVisitsThan(1)).isNotNull();
+        assertThat(patientDao.findPatientsWhichHadMoreVisitsThan(1).size()).isEqualTo(2);
+    }
+
+    @Test
+    public void testFindPatientsWithWeightBetween() {
+        // given
+        // when
+        // then
+        assertThat(patientDao.findPatientsWithWeightBetween(70.0, 80.0)).isNotNull();
+        assertThat(patientDao.findPatientsWithWeightBetween(70.0, 80.0).size()).isEqualTo(3);
+    }
 }

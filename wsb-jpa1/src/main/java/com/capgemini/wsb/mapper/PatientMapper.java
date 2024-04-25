@@ -19,7 +19,6 @@ public class PatientMapper {
             patientTO.setPatientNumber(patientEntity.getPatientNumber());
             patientTO.setDateOfBirth(patientEntity.getDateOfBirth());
             patientTO.setWeight(patientEntity.getWeight());
-            patientTO.setVisits(patientEntity.getVisits());
             return patientTO;
         }
 

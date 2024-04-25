@@ -16,9 +16,7 @@ public class PatientTO implements Serializable {
         private String email;
         private String patientNumber;
         private LocalDate dateOfBirth;
-        private float weight;
-
-        private List<VisitEntity> visits;
+        private double weight;
 
         public Long getId() {
             return id;
@@ -84,19 +82,11 @@ public class PatientTO implements Serializable {
             this.dateOfBirth = dateOfBirth;
         }
 
-        public float getWeight() {
+        public double getWeight() {
             return weight;
         }
 
-        public void setWeight(float weight) {
+        public void setWeight(double weight) {
             this.weight = weight;
-        }
-
-        public List<VisitEntity> getVisits() {
-            return visits;
-        }
-
-        public void setVisits(List<VisitEntity> visits) {
-            this.visits = visits;
         }
 }

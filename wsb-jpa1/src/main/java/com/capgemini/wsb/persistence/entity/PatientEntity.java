@@ -23,6 +23,7 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private String lastName;
 
+	//relacja jednostronna od strony rodzica PatientEntity do dziecka AddressEntity
 	@OneToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "address_id", nullable = false)
@@ -37,8 +38,9 @@ public class PatientEntity {
 
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
-	private float weight;
+	private double weight;
 
+	//relacja dwukierunkowa z VisitEntity
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<VisitEntity> visits = new ArrayList<>();
 
@@ -98,11 +100,11 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public float getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 	public AddressEntity getAddress() {

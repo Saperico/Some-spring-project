@@ -20,6 +20,7 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	private String lastName;
 
+	//relacja od strony rodzica DoctorEntity do dziecka AddressEntity
 	@OneToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "address_id", nullable = false)

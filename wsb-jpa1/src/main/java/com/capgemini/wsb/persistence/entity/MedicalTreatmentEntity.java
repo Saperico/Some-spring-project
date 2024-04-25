@@ -17,6 +17,7 @@ public class MedicalTreatmentEntity {
 	@Column(nullable = false)
 	private String description;
 
+	//jednostronna relacja z VisitEntity od strony dziecka MedicalTreatmentEntity
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "visit_id", nullable = true)

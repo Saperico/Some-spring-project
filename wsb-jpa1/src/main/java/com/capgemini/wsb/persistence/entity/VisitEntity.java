@@ -19,21 +19,16 @@ public class VisitEntity {
 	@Column(nullable = false)
 	private LocalDateTime time;
 
-	//doctor id
+	//jednokierunkowa relacja z DoctorEntity od strony dziecka VisitEntity
 	@ManyToOne(fetch = FetchType.LAZY)
 	private DoctorEntity doctor;
-
-
-	//doctor name from doctor entity
 	@Transient
 	private String doctorName;
 
-
-	//patient id
+	//relacja dwukierunkowa z PatientEntity
 	@ManyToOne
 	@JoinColumn(name = "patient_id")
 	private PatientEntity patient;
-
 
 	public Long getId() {
 		return id;
