@@ -43,14 +43,13 @@ public class PatientServiceTest {
 
     @Transactional
     @Test
-    //test for finding patients by last name
-    public void testFindByLastName() {
+    //test for finding patient by last name
+    public void testFindVisitsByPatientId() {
         // given
-        assertThat(patientService.findById(1L).getLastName()).isEqualTo("Kowalski");
-        assertThat(patientService.findById(3L).getLastName()).isEqualTo("Kowalski");
+        assertThat(patientService.findById(1L)).isNotNull();
         // when
         // then
-        assertThat(patientService.findByLastName("Kowalski")).isNotNull();
-        assertThat(patientService.findByLastName("Kowalski").size()).isEqualTo(2);
+        assertThat(patientService.findVisitsByPatientId(1L)).isNotNull();
+        assertThat(patientService.findVisitsByPatientId(1L).size()).isEqualTo(1);
     }
 }
